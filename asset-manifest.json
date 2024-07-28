@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/bingo-parley/static/css/main.4309b037.css",
+    "main.js": "/bingo-parley/static/js/main.f8003319.js",
+    "static/js/453.34d6bf74.chunk.js": "/bingo-parley/static/js/453.34d6bf74.chunk.js",
+    "static/media/10287365.png": "/bingo-parley/static/media/10287365.8bca3f4dbe8e6d01fadf.png",
+    "static/media/bingo2.png": "/bingo-parley/static/media/bingo2.34f9cd81dc7d32cf0fb7.png",
+    "index.html": "/bingo-parley/index.html",
+    "main.4309b037.css.map": "/bingo-parley/static/css/main.4309b037.css.map",
+    "main.f8003319.js.map": "/bingo-parley/static/js/main.f8003319.js.map",
+    "453.34d6bf74.chunk.js.map": "/bingo-parley/static/js/453.34d6bf74.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4309b037.css",
+    "static/js/main.f8003319.js"
+  ]
+}
