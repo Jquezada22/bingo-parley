@@ -1,0 +1,108 @@
+/* Bingo.css */
+.bingo-board {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 1px;
+  margin: 20px auto;
+  margin-left: -200px;
+  margin-top: 0px;
+  width: 120%;
+  height: 126%;
+  border: 2px solid #333;
+  background-color: #333;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 25px 0;
+  background-color: #000000;
+  border: 1px solid #cccccc;
+  font-size: 1.2em;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.cell.marked span {
+  color: gold; /* Cambia el color del texto del número marcado */
+  animation: grow-shrink 0.5s ease; /* Aplica la animación al texto */
+}
+
+@keyframes grow-shrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.last-marked-numbers {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.last-number {
+  background-color: black;
+  font-weight: bold;
+  color: gold;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.8em;
+  min-width: 25%;
+}
+
+.recent {
+  animation: highlight 1s ease-out;
+}
+
+@keyframes highlight {
+  0% {
+    transform: scale(1);
+    background-color: black;
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.transition-right {
+  animation: move-right 0.5s ease-out;
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(10px);
+  }
+}
+
+#current-number {
+  background-image: url('../imagenes/bingo2.png');
+  background-size: 100%;
+  background-position: center;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68%;
+  width: 90%;
+  font-size: 100px;
+  font-weight: bold;
+  margin-top: 50px;
+}

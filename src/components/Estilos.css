@@ -1,0 +1,36 @@
+/* Estilos.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+#last-number{
+    font-size: 27px;
+    color: black;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: bold;
+}
+
+#titulo {
+    font-size: 90px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    font-family: "Bebas Neue", sans-serif;
+    color: goldenrod;
+}
+
+#titulo-numeros-marcados {
+    margin-top: 14px;
+}
+
+.anchoBotones {
+    width: 40%;
+}
+
+#fondo-imagen{
+    background-image: url('../imagenes/10287365.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#moverDiv{
+    margin-top: -432px;
+}
