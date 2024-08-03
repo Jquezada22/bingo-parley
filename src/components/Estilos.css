@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 #last-number{
-    font-size: 27px;
+    font-size: 1.5rem; /* Ajuste para responsividad */
     color: black;
     font-family: "Bebas Neue", sans-serif;
     font-weight: bold;
 }
 
 #titulo {
-    font-size: 90px;
+    font-size: 5rem; /* Ajuste para responsividad */
     margin-top: 10px;
     margin-bottom: 0px;
     margin-left: 10px;
@@ -33,4 +33,43 @@
 
 #moverDiv{
     margin-top: -432px;
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+@media (max-width: 1200px) {
+  #titulo {
+    font-size: 3.5rem;
+  }
+
+  #last-number {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #titulo {
+    font-size: 2rem;
+  }
+
+  #last-number {
+    font-size: 1rem;
+  }
+
+  .anchoBotones {
+    width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  #titulo {
+    font-size: 1.5rem;
+  }
+
+  #last-number {
+    font-size: 0.8rem;
+  }
+
+  .anchoBotones {
+    width: 80%;
+  }
 }

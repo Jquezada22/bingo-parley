@@ -6,8 +6,8 @@
   margin: 20px auto;
   margin-left: -200px;
   margin-top: 0px;
-  width: 120%;
-  height: 126%;
+  width: 100%; /* Ajuste para responsividad */
+  height: auto; /* Ajuste para responsividad */
   border: 2px solid #333;
   background-color: #333;
   color: rgba(255, 255, 255, 0.5);
@@ -22,14 +22,14 @@
   padding: 25px 0;
   background-color: #000000;
   border: 1px solid #cccccc;
-  font-size: 1.2em;
+  font-size: 1.8em;
   position: relative;
   box-sizing: border-box;
 }
 
 .cell.marked span {
-  color: gold; /* Cambia el color del texto del número marcado */
-  animation: grow-shrink 0.5s ease; /* Aplica la animación al texto */
+  color: gold;
+  animation: grow-shrink 0.5s ease;
 }
 
 @keyframes grow-shrink {
@@ -94,7 +94,7 @@
 
 #current-number {
   background-image: url('../imagenes/bingo2.png');
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   color: black;
   display: flex;
@@ -102,7 +102,58 @@
   justify-content: center;
   height: 68%;
   width: 90%;
-  font-size: 100px;
+  font-size: 6.5rem; /* Ajuste para responsividad */
   font-weight: bold;
   margin-top: 50px;
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+@media (max-width: 1200px) {
+  #titulo {
+    font-size: 70px;
+  }
+
+  .last-number {
+    font-size: 1.5em;
+  }
+
+  #current-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #titulo {
+    font-size: 50px;
+  }
+
+  .last-number {
+    font-size: 1.2em;
+  }
+
+  #current-number {
+    font-size: 1.5rem;
+  }
+
+  .anchoBotones {
+    width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  #titulo {
+    font-size: 30px;
+  }
+
+  .last-number {
+    font-size: 1em;
+  }
+
+  #current-number {
+    font-size: 1rem;
+  }
+
+  .anchoBotones {
+    width: 80%;
+  }
 }

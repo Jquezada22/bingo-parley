@@ -13,6 +13,10 @@ const Bingo = () => {
 
   useRecentNumberEffect(recentNumber, markedNumbers, setTransitionNumbers, setRecentNumber);
 
+  const cantarBingo = (alerts) => {
+
+  }
+
   return (
     <Container>
       <div>
@@ -46,8 +50,7 @@ const Bingo = () => {
             </div>
           </div>
         </div>
-      </div>
-      
+      </div>      
     </Container>
   );
 };

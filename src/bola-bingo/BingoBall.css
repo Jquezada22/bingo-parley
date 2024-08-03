@@ -1,7 +1,7 @@
 /* BingoBall.css */
 .bingo-ball {
-    width: 200px;
-    height: 200px;
+    width: 12.5rem; /* Ajuste para responsividad */
+    height: 12.5rem; /* Ajuste para responsividad */
     background-color: #FFD700;
     border-radius: 50%;
     display: flex;
@@ -18,13 +18,35 @@
 }
 
 @keyframes bounce {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-20px);
     }
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+@media (max-width: 1200px) {
+  .bingo-ball {
+    width: 10rem;
+    height: 10rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bingo-ball {
+    width: 7.5rem;
+    height: 7.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .bingo-ball {
+    width: 5rem;
+    height: 5rem;
+    font-size: 0.8rem;
+  }
 }
