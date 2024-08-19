@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  background-image: url('./assets/10287365.png');
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
