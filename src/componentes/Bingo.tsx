@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
+import ButtonRegresar from './shared/ButtonRegresar';
 
 const Bingo: React.FC = () => {
     const [numbers, setNumbers] = useState<number[]>([]);
@@ -33,9 +34,8 @@ const Bingo: React.FC = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl my-0 font-semibold text-center text-slate-900">
                 BINGO PARLEY
             </h1>
-            <div className="flex flex-col md:py-2 lg:py-2 sm:flex-row items-start justify-between w-full max-w-7xl shadow-lg mt-8">
-                {/* Tabla de números */}
-                <div className="grid grid-cols-15 gap-2 w-full sm:w-3/4">
+            <div className="flex flex-col md:py-2 lg:py-2 sm:flex-row md:flex-row items-start justify-between max-w-max shadow-lg mt-8">
+                <div className="grid grid-cols-15 gap-4 w-full sm:w-3/4">
                     {Array.from({ length: 75 }, (_, index) => {
                         const num = index + 1;
                         return (
@@ -50,7 +50,6 @@ const Bingo: React.FC = () => {
                         );
                     })}
                 </div>
-                {/* Botones de generar número y reiniciar juego */}
                 <div className="mt-4 sm:mt-0 sm:ml-6 flex items-center gap-4 mx-2">
                     <button
                         onClick={generateRandomNumber}
@@ -66,15 +65,14 @@ const Bingo: React.FC = () => {
                     </button>
                 </div>
             </div>
-            {/* Últimos 3 números marcados */}
             <div className="mt-0 w-full max-w-7xl py-5">
-                <h2 className="text-xl sm:pb-4 md:pb-4 lg:pb-4 sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 text-center">Últimos 3 Números Marcados</h2>
+                <h2 className="text-xl sm:pb-4 md:pb-4 lg:pb-4 sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-2 text-center">Últimos 3 Números Marcados</h2>
                 <div className="flex justify-center gap-4">
                     {lastThreeNumbers.map(num => (
                         <div
                             key={num}
                             className={classNames(
-                                'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-15 lg:h-15 xl:w-15 xl:h-15 flex items-center justify-center rounded-full text-white text-2xl font-semibold bg-green-500 transform transition-transform duration-300',
+                                'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-15 lg:h-15 xl:w-15 xl:h-15 flex items-center justify-center text-yellow-600 text-2xl font-semibold bg-black transform transition-transform duration-300',
                                 'scale-110'
                             )}
                         >
@@ -82,6 +80,9 @@ const Bingo: React.FC = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className="my-auto pt-4">
+                <ButtonRegresar />
             </div>
         </div>
     );
