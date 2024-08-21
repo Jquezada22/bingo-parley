@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import ButtonRegresar from "./shared/ButtonRegresar";
 import { useNavigate } from 'react-router-dom';
+import Modal from './Modal'; // Importa el componente Modal
 
 const Ventas: React.FC = () => {
     const [cantidad, setCantidad] = useState('');
     const [precio, setPrecio] = useState('');
     const [porcentaje, setPorcentaje] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para el modal
     const navigate = useNavigate();
 
     const calcularTotal = () => {
         const total = (parseFloat(cantidad) * parseFloat(precio) * (parseFloat(porcentaje) / 100)).toFixed(0);
         return total;
     };
-
+ 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const total = calcularTotal();
-        navigate('/bingo', { state: { total } });
+        localStorage.setItem('totalAJugar', total); // Guarda el total en localStorage
+        setIsModalOpen(true); // Abre el modal
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setCantidad('');
+        setPrecio('');
+        setPorcentaje('');
+        navigate('/ventas'); // Navega a la página de Bingo
     };
 
     const isButtonDisabled = !cantidad || !precio || !porcentaje || isNaN(Number(cantidad)) || isNaN(Number(precio)) || isNaN(Number(porcentaje));
@@ -82,6 +93,14 @@ const Ventas: React.FC = () => {
                     </form>
                 </div>
             </div>
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+                <h2 className="text-xl font-semibold my-4">Se envio {calcularTotal()} soles al juego.</h2>
+                <div className="mx-auto my-2">
+                <button onClick={handleCloseModal}
+                className="mx-20 my-4 py-2 px-6 bg-red-600 hover:bg-red-700 rounded-lg text-white font-semibold shadow-lg"
+                >Aceptar</button>
+                </div>
+            </Modal>
         </div>
     );
 };
