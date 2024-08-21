@@ -9,7 +9,7 @@ const Ventas: React.FC = () => {
     const navigate = useNavigate();
 
     const calcularTotal = () => {
-        const total = (parseFloat(cantidad) * parseFloat(precio) * (parseFloat(porcentaje) / 100)).toFixed(2);
+        const total = (parseFloat(cantidad) * parseFloat(precio) * (parseFloat(porcentaje) / 100)).toFixed(0);
         return total;
     };
 
@@ -18,6 +18,8 @@ const Ventas: React.FC = () => {
         const total = calcularTotal();
         navigate('/bingo', { state: { total } });
     };
+
+    const isButtonDisabled = !cantidad || !precio || !porcentaje || isNaN(Number(cantidad)) || isNaN(Number(precio)) || isNaN(Number(porcentaje));
 
     return (
         <div className="py-10">
@@ -70,7 +72,11 @@ const Ventas: React.FC = () => {
                             />
                         </div>
                         <ButtonRegresar />
-                        <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-8 rounded-md ml-10">
+                        <button 
+                            type="submit"
+                            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-8 rounded-md ml-10 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            disabled={isButtonDisabled}
+                        >
                             Enviar al Bingo
                         </button>
                     </form>
