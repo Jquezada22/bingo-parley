@@ -38,7 +38,7 @@ const Ventas: React.FC = () => {
                 Venta de cartillas para Bingo Parley
             </h1>
             <div className="mt-8 mx-auto max-w-md">
-                <div className="bg-white py-8 px-4 shadow-md">
+                <div className="bg-white py-8 px-4 shadow-md rounded-lg">
                     <form className="space-y-5" onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="cantidad" className="block sm:text-1xl md:text-1xl lg:text-1xl uppercase text-gray-500 mb-3 font-bold">

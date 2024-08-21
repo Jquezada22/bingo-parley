@@ -26,14 +26,14 @@ const Bingo: React.FC = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-10">
+            <div className="flex flex-col items-center justify-start min-h-screen p-10">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl my-0 font-semibold text-center text-slate-900">
                     BINGO PARLEY
                 </h1>
                 <div className="flex items-start justify-between w-full max-w-7xl">
-                    <h1 className='text-normal sm:text-1xl md:text-2xl lg:text-3xl xl:text-4xl mt-4 -ml-32'>Total a jugar: {total} soles</h1>
+                    <h1 className='text-normal font-semibold sm:text-1xl md:text-2xl lg:text-3xl xl:text-4xl mt-4 -ml-32'>Total a jugar: {total} soles</h1>
                 </div>
-                <div className="flex flex-col md:py-2 lg:py-2 sm:flex-row md:flex-row items-start justify-between max-w-max shadow-lg mt-8">
+                <div className="flex flex-col md:py-2 lg:py-2 sm:flex-row md:flex-row items-start justify-between max-w-max shadow-2xl mt-8">
                     <div className="grid sm:grid-cols-8 md:grid-cols-8 md:gap-2 lg:grid-cols-15 lg:gap-4 xl:grid-cols-15 xl:gap-5 w-full sm:w-3/4 md:w-3/4 lg:w-3/4 xl:w-3/4">
                         {Array.from({ length: 75 }, (_, index) => {
                             const num = index + 1;
@@ -53,10 +53,10 @@ const Bingo: React.FC = () => {
                                 onClick={generateRandomNumber}
                                 className={classNames(
                                     'px-1 py-1 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-8 lg:py-2 rounded-lg focus:outline-none focus:ring-2',
-                                    'bg-blue-600 text-white font-semibold',
+                                    'bg-green-600 text-white font-semibold',
                                     isGenerateButtonDisabled
                                         ? 'bg-gray-400 cursor-not-allowed' // Estilos cuando el botón está deshabilitado
-                                        : 'hover:bg-blue-700 focus:ring-blue-400' // Estilos cuando el botón está habilitado
+                                        : 'hover:bg-green-700 focus:ring-green-400' // Estilos cuando el botón está habilitado
                                 )}
                                 disabled={isGenerateButtonDisabled}
                             >
@@ -65,7 +65,7 @@ const Bingo: React.FC = () => {
 
                             <button
                                 onClick={handleResetGame}
-                                className="px-1 py-1 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-8 lg:py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
+                                className="px-1 py-1 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-8 lg:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-red-400"
                                 disabled={isGenerateButtonDisabled}
                             >
                                 Reiniciar<br />Juego
