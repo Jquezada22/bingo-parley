@@ -7,7 +7,7 @@ import { useBingoLogic } from '../hooks/useBingoLogic';
 const Bingo: React.FC = () => {
     const { state } = useLocation();
     const [total, setTotal] = useState<string>('0.00');
-    const { numbers, lastThreeNumbers, generateRandomNumber, resetGame, currentNumber } = useBingoLogic();
+    const { numbers, lastThreeNumbers, generateRandomNumber, currentNumber } = useBingoLogic();
 
     useEffect(() => {
         // Leer el valor inicial de total desde localStorage o state
@@ -16,7 +16,6 @@ const Bingo: React.FC = () => {
     }, [state?.total]);
 
     const handleResetGame = () => {
-        resetGame(); // Llama al método de reinicio del juego
         localStorage.setItem('totalAJugar', '0.00'); // Reinicia el valor de total a 0
         setTotal('0.00'); // Actualiza el estado de total
         window.location.reload(); // Recarga la página
