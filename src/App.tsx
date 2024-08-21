@@ -5,9 +5,9 @@ import AppRoutes from './rutas/rutas';
 
 const App: React.FC = () => {
   return (
-    <Providers>
-        <AppRoutes/>
-    </Providers>
+      <Providers>
+        <AppRoutes />
+      </Providers>
   );
 };
 
