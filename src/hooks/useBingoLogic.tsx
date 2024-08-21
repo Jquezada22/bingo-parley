@@ -1,4 +1,3 @@
-// useBingoLogic.tsx
 import { useState, useEffect } from 'react';
 
 export const useBingoLogic = () => {
@@ -20,6 +19,7 @@ export const useBingoLogic = () => {
         setNumbers([]);
         setCurrentNumber(null);
         setLastThreeNumbers([]);
+        localStorage.setItem('totalAJugar', '0.00');
     };
 
     useEffect(() => {
