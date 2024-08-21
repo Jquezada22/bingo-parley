@@ -67,6 +67,7 @@ const Bingo: React.FC = () => {
                             <button
                                 onClick={handleResetGame}
                                 className="px-1 py-1 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-8 lg:py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
+                                disabled={isGenerateButtonDisabled}
                             >
                                 Reiniciar<br />Juego
                             </button>
