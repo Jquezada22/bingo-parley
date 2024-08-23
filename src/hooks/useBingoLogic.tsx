@@ -1,32 +1,39 @@
-import { useState, useEffect } from 'react';
+import { create } from 'zustand';
 
-export const useBingoLogic = () => {
-    const [numbers, setNumbers] = useState<number[]>([]);
-    const [currentNumber, setCurrentNumber] = useState<number | null>(null);
-    const [lastThreeNumbers, setLastThreeNumbers] = useState<number[]>([]);
-
-    const generateRandomNumber = () => {
-        if (numbers.length >= 75) return;
-        let randomNumber: number;
-        do {
-            randomNumber = Math.floor(Math.random() * 75) + 1;
-        } while (numbers.includes(randomNumber));
-        setNumbers(prev => [...prev, randomNumber]);
-        setCurrentNumber(randomNumber);
-    };
-
-    const resetGame = () => {
-        setNumbers([]);
-        setCurrentNumber(null);
-        setLastThreeNumbers([]);
-        localStorage.setItem('totalAJugar', '0.00');
-    };
-
-    useEffect(() => {
-        if (currentNumber !== null) {
-            setLastThreeNumbers(prev => [currentNumber, ...prev].slice(0, 3));
-        }
-    }, [currentNumber]);
-
-    return { numbers, currentNumber, lastThreeNumbers, generateRandomNumber, resetGame };
+type BingoState = {
+    numbers: number[];
+    lastThreeNumbers: number[];
+    currentNumber: number | null;
+    generateRandomNumber: () => void;
+    resetGame: () => void;
 };
+
+export const useBingoLogic = create<BingoState>((set) => ({
+    numbers: [],
+    lastThreeNumbers: [],
+    currentNumber: null,
+    generateRandomNumber: () => {
+        set((state) => {
+            const availableNumbers = Array.from({ length: 75 }, (_, i) => i + 1).filter(num => !state.numbers.includes(num));
+            if (availableNumbers.length === 0) return state; // No hay números disponibles, regresar el estado actual
+
+            const randomNum = availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
+            const updatedNumbers = [...state.numbers, randomNum];
+            const lastThree = updatedNumbers.slice(-3);
+
+            return {
+                ...state,
+                numbers: updatedNumbers,
+                lastThreeNumbers: lastThree,
+                currentNumber: randomNum,
+            };
+        });
+    },
+    resetGame: () => {
+        set(() => ({
+            numbers: [],
+            lastThreeNumbers: [],
+            currentNumber: null,
+        }));
+    },
+}));

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ButtonRegresar from "./shared/ButtonRegresar";
 import { useNavigate } from 'react-router-dom';
-import Modal from './Modal'; // Importa el componente Modal
+import Modal from './Modal';
+
 
 const Ventas: React.FC = () => {
     const [cantidad, setCantidad] = useState('');
@@ -14,7 +15,7 @@ const Ventas: React.FC = () => {
         const total = (parseFloat(cantidad) * parseFloat(precio) * (parseFloat(porcentaje) / 100)).toFixed(0);
         return total;
     };
- 
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const total = calcularTotal();
@@ -34,14 +35,17 @@ const Ventas: React.FC = () => {
 
     return (
         <div className="py-10">
-            <h1 className="text-center sm:text-4xl md:text-5xl lg:text-6lg font-semibold my-5">
-                Venta de cartillas para Bingo Parley
+            <h1 className="text-center sm:text-4xl md:text-5xl lg:text-6lg font-semibold my-5 uppercase">
+                Administración bingo parley
             </h1>
             <div className="mt-8 mx-auto max-w-md">
-                <div className="bg-white py-8 px-4 shadow-md rounded-lg">
+                <div className="bg-white py-4 px-4 shadow-md rounded-lg">
                     <form className="space-y-5" onSubmit={handleSubmit}>
                         <div>
-                            <label htmlFor="cantidad" className="block sm:text-1xl md:text-1xl lg:text-1xl uppercase text-gray-500 mb-3 font-bold">
+                            <h1 className="block text-center text-gray-500 font-bold text-3xl uppercase">Ventas</h1>
+                        </div>
+                        <div>
+                            <label htmlFor="cantidad" className="block md:text-1xl lg:text-1xl uppercase text-gray-500 mb-3 font-bold">
                                 Cartillas vendidas
                             </label>
                             <input
@@ -82,23 +86,36 @@ const Ventas: React.FC = () => {
                                 onChange={(e) => setPorcentaje(e.target.value)}
                             />
                         </div>
-                        <ButtonRegresar />
-                        <button 
-                            type="submit"
-                            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-8 rounded-md ml-10 disabled:bg-gray-400 disabled:cursor-not-allowed"
-                            disabled={isButtonDisabled}
-                        >
-                            Enviar al Bingo
-                        </button>
+                        <div className="flex gap-4 justify-around">
+                            <ButtonRegresar />
+                            <button
+                                type="submit"
+                                className="bg-teal-700 hover:bg-teal-600 text-white font-semibold py-2 px-8 rounded-md ml-10 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                disabled={isButtonDisabled}
+                            >
+                                Enviar al Bingo
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4">
+                    <form>
+                        <div>
+                            <h1 className="block text-center text-gray-500 font-bold text-3xl uppercase mb-4">Control del Bingo</h1>
+                        </div>
+                        <div className="flex gap-4 justify-around">
+                            <button className="bg-slate-700 hover:bg-slate-600 py-2 px-10 rounded-lg text-white">Generar Número</button>
+                            <button className="bg-teal-700 hover:bg-teal-600 py-2 px-10 rounded-lg text-white">Cantar Bingo</button>
+                        </div>
                     </form>
                 </div>
             </div>
             <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
                 <h2 className="text-xl font-semibold my-4">Se envio {calcularTotal()} soles al juego.</h2>
                 <div className="mx-auto my-2">
-                <button onClick={handleCloseModal}
-                className="mx-20 my-4 py-2 px-6 bg-red-600 hover:bg-red-700 rounded-lg text-white font-semibold shadow-lg"
-                >Aceptar</button>
+                    <button onClick={handleCloseModal}
+                        className="mx-20 my-4 py-2 px-6 bg-teal-700 hover:bg-teal-600 rounded-lg text-white font-semibold shadow-lg"
+                    >Aceptar</button>
                 </div>
             </Modal>
         </div>
