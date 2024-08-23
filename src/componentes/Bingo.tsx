@@ -5,14 +5,14 @@ import { useBingoLogic } from '../hooks/useBingoLogic';
 
 const Bingo: React.FC = () => {
     const { state } = useLocation();
-    const [total, setTotal] = useState<string>('0.00');
+    const [totalAJugar, setTotalAJugar] = useState<string>('0.00');
     const { numbers, lastThreeNumbers, generateRandomNumber, currentNumber } = useBingoLogic();
     const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
-        const storedTotal = state?.total || localStorage.getItem('totalAJugar') || '0.00';
-        setTotal(storedTotal);
-    }, [state?.total]);
+        const storedTotal = state?.totalAJugar || localStorage.getItem('totalAJugar') || '0.00';
+        setTotalAJugar(storedTotal);
+    }, [state?.totalAJugar]);
 
     useEffect(() => {
         if (currentNumber !== null) {
@@ -34,11 +34,11 @@ const Bingo: React.FC = () => {
 
     const handleResetGame = () => {
         localStorage.setItem('totalAJugar', '0.00');
-        setTotal('0.00');
+        setTotalAJugar('0.00');
         window.location.reload();
     };
 
-    const isGenerateButtonDisabled = total === '0.00';
+    const isGenerateButtonDisabled = totalAJugar === '0.00';
 
     return (
         <>
@@ -112,7 +112,7 @@ const Bingo: React.FC = () => {
                             </div>
                         </div>
                         <div className='bg-white py-2 px-2 rounded-lg my-20'>
-                            <h1 className='text-normal font-semibold md:text-1xl lg:text-2xl xl:text-2xl'>POZO: {total} SOLES</h1>
+                            <h1 className='text-normal font-semibold md:text-1xl lg:text-2xl xl:text-2xl'>POZO: {totalAJugar} SOLES</h1>
                         </div>
                     </div>
                 </div>
