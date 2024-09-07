@@ -35,9 +35,6 @@ const Ventas: React.FC = () => {
 
     return (
         <div className="py-10">
-            <h1 className="text-center sm:text-4xl md:text-5xl lg:text-6lg font-semibold my-5 uppercase">
-                Administración bingo parley
-            </h1>
             <div className="mt-8 mx-auto max-w-md">
                 <div className="bg-white py-4 px-4 shadow-md rounded-lg">
                     <form className="space-y-5" onSubmit={handleSubmit}>
@@ -103,9 +100,7 @@ const Ventas: React.FC = () => {
                         <div>
                             <h1 className="block text-center text-gray-500 font-bold text-3xl uppercase mb-4">Control del Bingo</h1>
                         </div>
-                        <div className="flex gap-4 justify-around">
-                            <button className="bg-slate-700 hover:bg-slate-600 py-2 px-10 rounded-lg text-white">Generar Número</button>
-                            <button className="bg-teal-700 hover:bg-teal-600 py-2 px-10 rounded-lg text-white">Cantar Bingo</button>
+                        <div className="flex gap-2 justify-around">
                         </div>
                     </form>
                 </div>
