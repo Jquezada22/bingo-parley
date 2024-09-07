@@ -2,18 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
 
-/* src/index.css o el archivo CSS global */
 body {
-    background-image: url('./assets/Background.png');
+    background-image: url('./assets/Fondo.png');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
     margin: 0;
     padding: 0;
 }
+
+#bingoBall{
+    background-image: url('./assets/BaLL.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#pozo{
+    background-image: url('./assets/Pozo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#lastNumber{
+    background-image: url('./assets/Bolas.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 @keyframes scaleUpDown {
     0% {

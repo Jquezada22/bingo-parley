@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom'
-import Home from "../componentes/Home";
-import Bingo from "../componentes/Bingo";
+import Home from "../componentes/auth/Home";
+import Bingo from "../componentes/auth/Bingo";
 import Ventas from "../componentes/Ventas";
 
 const AppRoutes = () => (

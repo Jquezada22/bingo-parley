@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ButtonRegresar from "./shared/ButtonRegresar";
+import ButtonRegresar from "../shared/ButtonRegresar";
 import { useNavigate } from 'react-router-dom';
-import Modal from './shared/Modal';
+import Modal from '../shared/Modal';
 
 
 const Ventas: React.FC = () => {
