@@ -35,10 +35,7 @@ const Ventas: React.FC = () => {
 
     return (
         <div className="py-10">
-            <h1 className="text-center sm:text-4xl md:text-5xl lg:text-6lg font-semibold my-5 uppercase">
-                Administración bingo parley
-            </h1>
-            <div className="mt-8 mx-auto max-w-md">
+            <div className="mt-36 mx-auto max-w-md">
                 <div className="bg-white py-4 px-4 shadow-md rounded-lg">
                     <form className="space-y-5" onSubmit={handleSubmit}>
                         <div>
