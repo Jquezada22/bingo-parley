@@ -120,7 +120,7 @@ const Bingo: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div id="pozo" className='py-11 px-24 rounded-3xl my-5'>
+                <div id="pozo" className='md:py-14 md:px-24 lg:py-11 lg:px-20 rounded-3xl my-5'>
                     <h1 className='text-normal font-bold md:text-7xl lg:text-7xl xl:text-7xl text-white'>S/. {total}</h1>
                 </div>
             </div>

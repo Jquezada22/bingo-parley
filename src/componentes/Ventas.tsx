@@ -83,6 +83,18 @@ const Ventas: React.FC = () => {
                                 onChange={(e) => setPorcentaje(e.target.value)}
                             />
                         </div>
+                        <div>
+                            <label htmlFor="rondas" className="block sm:text-1xl md:text-1xl lg:text-1xl uppercase text-gray-500 mb-3 font-bold">
+                                Número de rondas
+                            </label>
+                            <input
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400"
+                                type="text"
+                                placeholder="Ingrese el número de rondas a jugar"
+                                name="rondas"
+                                id="rondas"
+                            />
+                        </div>
                         <div className="flex gap-4 justify-around">
                             <ButtonRegresar />
                             <button
@@ -101,8 +113,8 @@ const Ventas: React.FC = () => {
                             <h1 className="block text-center text-gray-500 font-bold text-3xl uppercase mb-4">Control del Bingo</h1>
                         </div>
                         <div className="flex gap-4 justify-around">
-                            <button className="bg-slate-700 hover:bg-slate-600 py-2 px-10 rounded-lg text-white">Generar Número</button>
-                            <button className="bg-teal-700 hover:bg-teal-600 py-2 px-10 rounded-lg text-white">Cantar Bingo</button>
+                            <button className="bg-slate-700 hover:bg-slate-600 font-bold py-2 px-10 rounded-lg text-white">Generar Número</button>
+                            <button className="bg-teal-700 hover:bg-teal-600 font-semibold py-2 px-10 rounded-lg text-white">Cantar Bingo</button>
                         </div>
                     </form>
                 </div>
