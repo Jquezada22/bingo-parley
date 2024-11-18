@@ -83,18 +83,6 @@ const Ventas: React.FC = () => {
                                 onChange={(e) => setPorcentaje(e.target.value)}
                             />
                         </div>
-                        <div>
-                            <label htmlFor="rondas" className="block sm:text-1xl md:text-1xl lg:text-1xl uppercase text-gray-500 mb-3 font-bold">
-                                Número de rondas
-                            </label>
-                            <input
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400"
-                                type="text"
-                                placeholder="Ingrese el número de rondas a jugar"
-                                name="rondas"
-                                id="rondas"
-                            />
-                        </div>
                         <div className="flex gap-4 justify-around">
                             <ButtonRegresar />
                             <button
