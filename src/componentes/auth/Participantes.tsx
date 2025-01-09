@@ -107,7 +107,7 @@ const Participantes: React.FC = () => {
                   <tr key={index}>
                     <td className="border border-gray-300 px-4 py-2 font-semibold text-center">{index + 1}</td>
                     <td className="border border-gray-300 px-4 py-2 font-semibold">{row.DNI}</td>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">{row.NOMBRE}</td>
+                    <td className="border border-gray-300 px-4 py-2 font-semibold uppercase">{row.NOMBRE}</td>
                     <td className="border border-gray-300 px-4 py-2 font-semibold">{row.CELULAR}</td>
                     <td className="border border-gray-300 px-4 py-2 font-semibold">{row.SALA}</td>
                   </tr>
