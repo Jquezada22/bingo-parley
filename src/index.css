@@ -62,13 +62,13 @@ body {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.5); /* Escala la bolita */
+        transform: scale(1.5);
     }
     100% {
-        transform: scale(1);
+        transform: scale(1.2);
     }
 }
 
 .animate-enlarge {
-    animation: enlarge 0.7s ease-in-out;
+    animation: enlarge 0.8s forwards;
 }

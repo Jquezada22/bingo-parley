@@ -48,6 +48,23 @@ const Bingo: React.FC = () => {
         <>
             <div className="flex flex-col items-center justify-start min-h-screen p-10">
                 <div className="flex flex-col md:py-6 lg:py-2 xl:py-6 md:flex-row lg:flex-row xl:flex-row items-start justify-between max-w-max shadow-2xl mt-32">
+                    {/* Sección de la palabra "BINGO" en forma vertical */}
+                    <div className="flex flex-col items-center justify-start mr-4 space-y-12 -mt-2">
+                        {['B', 'I', 'N', 'G', 'O'].map((letter, index) => (
+                            <div
+                                key={index}
+                                className="text-4xl md:text-6xl font-extrabold text-red-600 my-2"
+                                style={{
+                                    transform: `rotate(${index % 2 === 0 ? '-0deg' : '0deg'})`,
+                                    color: ['#FFFF', '#FFFF', '#FFFF', '#FFFF', '#FFFF'][index], // Cambia el color por letra
+                                }}
+                            >
+                                {letter}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Contenedor de los 75 números */}
                     <div className="grid md:grid-cols-8 md:gap-2 lg:grid-cols-15 lg:gap-4 xl:grid-cols-15 xl:gap-5
                     md:gap-y-8 lg:gap-y-10 xl:gap-y-12
                      w-full md:w-3/4 lg:w-3/4 xl:w-3/4">
@@ -62,18 +79,19 @@ const Bingo: React.FC = () => {
                                     className={classNames(
                                         "md:w-16 md:h-16 lg:w-18 lg:h-18 flex items-center justify-center rounded-full text-black font-semibold text-2xl",
                                         {
-                                            'bg-yellow-600 text-red-700': isSelected, // Clase para marcar el número
+                                            'bg-black text-red-600 font-extrabold text-3xl': isSelected, // Cambia el color y aumenta el grosor del texto
                                             'bg-gray-200': !isSelected,
-                                            'font-extrabold': isSelected,
                                             'animate-enlarge': isSelected, // Clase de animación para agrandar
                                         }
                                     )}
                                 >
-                                    {isSelected ? 'X' : formatNumber(num)}
+                                    {formatNumber(num)}
                                 </div>
                             );
                         })}
                     </div>
+
+                    {/* Botones y última información */}
                     <div className="mt-4 flex flex-col items-center gap-4 mx-2 space-y-5">
                         <div className="flex gap-5">
                             <button
@@ -106,9 +124,9 @@ const Bingo: React.FC = () => {
                         </div>
                         <div id="lastNumber" className="mt-1 px-48 py-20">
                             <h1 className={classNames(
-                            "text-xl sm:text-2xl md:text-5xl lg:text-7xl font-bold text-center text-black",
-                            { 'animate-scale': isAnimating }
-                        )}>
+                                "text-xl sm:text-2xl md:text-5xl lg:text-7xl font-bold text-center text-black",
+                                { 'animate-scale': isAnimating }
+                            )}>
                                 {currentNumber !== null ? formatNumber(currentNumber) : '00'}
                             </h1>
                         </div>
@@ -131,7 +149,7 @@ const Bingo: React.FC = () => {
                     </div>
                 </div>
                 <div id="pozo" className='md:py-14 md:px-24 lg:py-11 lg:px-20 rounded-3xl my-5'>
-                    <h1 className='text-normal font-bold md:text-7xl lg:text-7xl xl:text-7xl text-white'>S/. {total}</h1>
+                    <h1 className='text-normal font-bold md:text-7xl lg:text-7xl xl:text-6xl text-white'>S/. {total + '.0'}</h1>
                 </div>
             </div>
         </>
