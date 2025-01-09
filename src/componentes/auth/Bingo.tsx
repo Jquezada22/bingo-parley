@@ -53,13 +53,23 @@ const Bingo: React.FC = () => {
                      w-full md:w-3/4 lg:w-3/4 xl:w-3/4">
                         {Array.from({ length: 75 }, (_, index) => {
                             const num = index + 1;
+                            const isSelected = numbers.includes(num); // Verifica si el número está seleccionado
+
                             return (
                                 <div
                                     id="bingoBall"
                                     key={num}
-                                    className={`md:w-16 md:h-16 lg:w-18 lg:h-18 flex items-center justify-center rounded-full text-black font-semibold text-2xl ${numbers.includes(num)}`}
+                                    className={classNames(
+                                        "md:w-16 md:h-16 lg:w-18 lg:h-18 flex items-center justify-center rounded-full text-black font-semibold text-2xl",
+                                        {
+                                            'bg-yellow-600 text-red-700': isSelected, // Clase para marcar el número
+                                            'bg-gray-200': !isSelected,
+                                            'font-extrabold': isSelected,
+                                            'animate-enlarge': isSelected, // Clase de animación para agrandar
+                                        }
+                                    )}
                                 >
-                                    {formatNumber(num)}
+                                    {isSelected ? 'X' : formatNumber(num)}
                                 </div>
                             );
                         })}
