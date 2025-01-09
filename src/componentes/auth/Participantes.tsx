@@ -91,7 +91,7 @@ const Participantes: React.FC = () => {
       {fileUploaded && (
         <div className="mt-32">
           <h2 className="text-6xl font-bold mb-4 text-center text-white">Lista de Participantes</h2>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto max-h-[700px] overflow-y-auto">
             <table className="table-auto border-collapse border border-gray-300 mx-auto w-2/3 rounded-lg overflow-hidden">
               <thead>
                 <tr className="bg-gray-300">
