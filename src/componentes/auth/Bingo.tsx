@@ -46,7 +46,14 @@ const Bingo: React.FC = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-start min-h-screen p-10">
+            <div className="flex flex-col items-center justify-start min-h-screen p-10 relative">
+                {/* Texto "Ronda numero 1" en la esquina superior izquierda */}
+                <div className="absolute top-20 left-16">
+                    <h1 className="font-bold text-white text-4xl uppercase">
+                        partida numero 1
+                    </h1>
+                </div>
+
                 <div className="flex flex-col md:py-6 lg:py-2 xl:py-6 md:flex-row lg:flex-row xl:flex-row items-start justify-between max-w-max shadow-2xl mt-32">
                     {/* Sección de la palabra "BINGO" en forma vertical */}
                     <div className="flex flex-col items-center justify-start mr-4 space-y-12 -mt-2">
@@ -122,10 +129,11 @@ const Bingo: React.FC = () => {
                                 Cantar<br />Bingo
                             </button>
                         </div>
-                        <div id="lastNumber" className="mt-1 px-48 py-20">
+                        <div id="lastNumber" className={classNames("mt-1 px-48 py-20",
+                            { 'animate-scale2': isAnimating }
+                        )}>
                             <h1 className={classNames(
-                                "text-xl sm:text-2xl md:text-5xl lg:text-7xl font-bold text-center text-black",
-                                { 'animate-scale': isAnimating }
+                                "text-xl sm:text-2xl md:text-5xl lg:text-7xl font-bold text-center text-black"
                             )}>
                                 {currentNumber !== null ? formatNumber(currentNumber) : '00'}
                             </h1>
@@ -133,22 +141,25 @@ const Bingo: React.FC = () => {
                         <div className="mt-1 w-full max-w-7xl py-1">
                             <h2 className="text-xl md:text-1xl lg:text-2xl xl:text-2xl font-bold text-center">ÚLTIMOS NÚMEROS</h2>
                             <div className="flex justify-center gap-5 mt-4">
-                                {lastThreeNumbers.map(num => (
+                                {lastThreeNumbers.map((num, index) => (
                                     <div
                                         key={num}
                                         className={classNames(
-                                            'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-15 lg:h-15 xl:w-15 xl:h-15 flex items-center justify-center text-yellow-600 text-2xl font-semibold bg-black transform transition-transform duration-300',
-                                            'scale-110'
+                                            'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-15 lg:h-15 xl:w-15 xl:h-15 flex items-center justify-center text-yellow-600 text-2xl font-semibold bg-black',
+                                            {
+                                                'animate-scale': num === currentNumber, // Aplica animación solo al último número seleccionado
+                                            }
                                         )}
                                     >
                                         {formatNumber(num)}
                                     </div>
                                 ))}
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div id="pozo" className='md:py-14 md:px-24 lg:py-11 lg:px-20 rounded-3xl my-5'>
+                <div id="pozo" className='md:py-14 md:px-24 lg:py-11 lg:px-20 rounded-3xl my-12'>
                     <h1 className='text-normal font-bold md:text-7xl lg:text-7xl xl:text-6xl text-white'>S/. {total + '.0'}</h1>
                 </div>
             </div>
